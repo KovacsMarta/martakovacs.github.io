@@ -64,7 +64,6 @@
             overflow: hidden; border: 3px solid #3b82f6; display: block; transition: 0.3s; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
-        .featured-card:hover { transform: translateY(-5px); border-color: #fbbf24; }
         .featured-card img { width: 100%; display: block; }
         
         .popular-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; margin-top: 25px; }
@@ -82,10 +81,16 @@
         .sub-btn { background: #ff0000; color: white; padding: 18px 40px; border: none; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-block; font-size: 18px; margin-top: 15px; }
         .back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: #1e3a8a; color: white; width: 60px; height: 60px; border-radius: 50%; border: 3px solid #fbbf24; text-decoration: none; font-size: 30px; display: flex; align-items: center; justify-content: center; z-index: 1000; }
 
-        /* JOGI SZÖVEG STÍLUSA */
-        .jogi-nyilatkozat { 
-            margin-top: 50px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); 
-            text-align: center; font-style: italic; color: #aaa; font-size: 14px;
+        /* JOGI SZÖVEG KIEMELT STÍLUSA */
+        .footer-legal { 
+            margin-top: 60px; 
+            padding: 30px 20px; 
+            border-top: 1px solid rgba(255,255,255,0.2); 
+            text-align: center; 
+            font-style: italic; 
+            color: #ffffff; 
+            font-size: 15px;
+            background: rgba(0,0,0,0.2);
         }
 
         @media (max-width: 768px) {
@@ -93,8 +98,6 @@
             .header-text { max-width: 100%; }
             .header-quote-center { position: relative; left: 0; top: 0; transform: none; max-width: 100%; margin: 20px 0; }
             .kandur-walking-figure { width: 300px; bottom: -150px; right: 0px; }
-            .zászló-box { max-width: 100%; }
-            .profil-szekcio { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -182,10 +185,10 @@
         <p style="font-size: 20px; font-weight: bold;">Kérd a nyomtatható kifestőt.</p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScNxF2EVHFQKgs12OxXwOYJKu4BR_q2aNN0OwTJuM1vXEAEVw/viewform" target="_blank" class="sub-btn">KÉREM AZ AJÁNDÉKOT!</a>
     </div>
+</div>
 
-    <div class="jogi-nyilatkozat">
-        <p>Amennyiben Ön a közzétett művek jogtulajdonosa, és nem járul hozzá a megjelenítéshez, kérem jelezze, és haladéktalanul eltávolítom a tartalmat.</p>
-    </div>
+<div class="footer-legal">
+    <p>Amennyiben Ön a közzétett művek jogtulajdonosa, és nem járul hozzá a megjelenítéshez, kérem jelezze, és haladéktalanul eltávolítom a tartalmat.</p>
 </div>
 
 <a href="#" class="back-to-top">🐾</a>
