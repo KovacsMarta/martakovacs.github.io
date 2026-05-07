@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>AI Mesevilág - Kék Kandúr Birodalma</title>
-    <meta name="description" content="Kék Kandúr AI Mesevilág - Kovács Márta Ria honlapja. Klasszikus magyar versek és mesék modern AI feldolgozásban.">
-    <meta name="keywords" content="Kék Kandúr, AI Mesevilág, Kovács Márta Ria, versek, mesék, Fazekas Anna, Móricz Zsigmond, Móra Ferenc, Szabó Lőrinc">
+    <meta name="description" content="Kék Kandúr AI Mesevilág - Kovács Márta Ria honlapja.">
     <meta name="author" content="Kovács Márta Ria">
 
     <style>
         html { scroll-behavior: smooth; }
         body { background-color: #0d1b2a; font-family: 'Segoe UI', sans-serif; margin: 0; color: white; text-align: center; overflow-x: hidden; }
         
-        /* FEJLÉC */
         .header { 
             background: linear-gradient(to bottom, #1e3a8a, #3b82f6); 
             padding: 40px 5%; 
@@ -23,7 +21,6 @@
             justify-content: flex-start;
             text-align: left;
             position: relative; 
-            overflow: visible; 
             z-index: 10;
         }
         
@@ -32,40 +29,24 @@
         .header-text h2 { margin: 5px 0 0 0; font-size: 38px; color: #fbbf24; font-weight: bold; }
         
         .header-quote-center { 
-            position: absolute;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 40%; 
-            text-align: center; 
-            font-size: 26px; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            color: white; 
-            line-height: 1.2;
-            z-index: 5;
+            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+            max-width: 40%; text-align: center; font-size: 26px; font-weight: 900; 
+            text-transform: uppercase; color: white; line-height: 1.2; z-index: 5;
         }
         .header-quote-center small { font-size: 18px; text-transform: none; font-weight: normal; color: #fbbf24; display: block; margin-top: 10px;}
 
         .kandur-walking-figure { 
-            width: 640px; 
-            height: auto; 
-            position: absolute; 
-            bottom: -235px; 
-            right: -180px; 
-            z-index: 15; 
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.7)); 
-            pointer-events: none; 
-            transition: all 0.3s ease;
+            width: 640px; position: absolute; bottom: -235px; right: -180px; z-index: 15; 
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.7)); pointer-events: none; 
         }
-        .kandur-walking-figure img { width: 100%; height: auto; object-fit: contain; }
+        .kandur-walking-figure img { width: 100%; height: auto; }
 
         .container { max-width: 1100px; margin: auto; padding: 20px; position: relative; z-index: 1; }
         
         .zászló-box { 
             background: white; color: #b91c1c; padding: 15px; border-radius: 15px; font-weight: bold; 
             margin: 20px 0; border-top: 5px solid #d32f2f; border-bottom: 5px solid #15803d; 
-            font-size: 20px; position: relative; z-index: 5; max-width: 65%; margin-right: auto;
+            font-size: 20px; max-width: 65%; margin-right: auto;
         }
         
         .szerzok-doboz { background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 20px; border: 1px solid #fbbf24; margin: 30px 0; text-align: left; }
@@ -79,15 +60,8 @@
         .section-title { color: #fbbf24; margin-top: 50px; border-bottom: 2px solid rgba(251, 191, 36, 0.3); display: inline-block; padding-bottom: 5px; font-size: 28px; }
 
         .featured-card { 
-            max-width: 480px; 
-            margin: 25px auto; 
-            background: #1e293b; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            border: 3px solid #3b82f6; 
-            text-decoration: none; 
-            display: block; 
-            transition: 0.3s; 
+            max-width: 480px; margin: 25px auto; background: #1e293b; border-radius: 20px; 
+            overflow: hidden; border: 3px solid #3b82f6; display: block; transition: 0.3s; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
         .featured-card:hover { transform: translateY(-5px); border-color: #fbbf24; }
@@ -109,15 +83,12 @@
         .back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: #1e3a8a; color: white; width: 60px; height: 60px; border-radius: 50%; border: 3px solid #fbbf24; text-decoration: none; font-size: 30px; display: flex; align-items: center; justify-content: center; z-index: 1000; }
 
         @media (max-width: 768px) {
-            .header { flex-direction: column; text-align: center; padding: 20px 5%; height: auto; }
-            .header-text { max-width: 100%; margin-bottom: 20px; }
-            .header-text h1 { font-size: 32px; }
-            .header-text h2 { font-size: 24px; }
-            .header-quote-center { position: relative; left: 0; top: 0; transform: none; max-width: 100%; font-size: 18px; margin: 20px 0; }
+            .header { flex-direction: column; text-align: center; }
+            .header-text { max-width: 100%; }
+            .header-quote-center { position: relative; left: 0; top: 0; transform: none; max-width: 100%; margin: 20px 0; }
             .kandur-walking-figure { width: 300px; bottom: -150px; right: 0px; }
-            .zászló-box { max-width: 100%; font-size: 16px; }
+            .zászló-box { max-width: 100%; }
             .profil-szekcio { flex-direction: column; text-align: center; }
-            .featured-card { max-width: 100%; }
         }
     </style>
 </head>
@@ -161,7 +132,7 @@
 
     <h2 class="section-title">🎬 Aktuális kedvenc</h2>
     <a href="https://youtu.be/BQx9X3FPxRA" target="_blank" class="featured-card">
-        <img src="https://img.youtube.com/vi/BQx9X3FPxRA/maxresdefault.jpg" alt="Aktuális kedvenc videó">
+        <img src="https://img.youtube.com/vi/BQx9X3FPxRA/maxresdefault.jpg" alt="Aktuális kedvenc">
     </a>
 
     <h2 class="section-title">🔥 Népszerű videók</h2>
@@ -208,10 +179,6 @@
 </div>
 
 <a href="#" class="back-to-top">🐾</a>
-
-<div style="margin-top: 50px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-style: italic; color: #aaa;">
-    <p>Amennyiben Ön a közzétett művek jogtulajdonosa, és nem járul hozzá a megjelenítéshez, kérem jelezze, és haladéktalanul eltávolítom a tartalmat.</p>
-</div>
 
 </body>
 </html>
