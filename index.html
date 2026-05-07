@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Mesevilág - Kék Kandúr Birodalma</title>
+    
+    <title>Kék Kandúr Birodalma - AI Mesevilág</title>
+    <meta name="description" content="Kék Kandúr AI Mesevilág - Kovács Márta Ria honlapja. Klasszikus magyar versek és mesék modern AI feldolgozásban.">
+    <meta name="keywords" content="Kék Kandúr, AI Mesevilág, Kovács Márta Ria, versek, mesék, Anyák napja">
+    <meta name="author" content="Kovács Márta Ria">
+
     <style>
         html { scroll-behavior: smooth; }
         body { background-color: #0d1b2a; font-family: 'Segoe UI', sans-serif; margin: 0; color: white; text-align: center; overflow-x: hidden; }
         
+        /* FEJLÉC */
         .header { 
             background: linear-gradient(to bottom, #1e3a8a, #3b82f6); 
             padding: 40px 5%; 
@@ -17,67 +23,104 @@
             justify-content: flex-start;
             text-align: left;
             position: relative; 
+            overflow: visible; 
             z-index: 10;
         }
         
         .header-text { max-width: 40%; }
-        .header-text h1 { margin: 0; font-size: 45px; text-transform: uppercase; }
-        .header-text h2 { margin: 5px 0 0 0; font-size: 32px; color: #fbbf24; font-weight: bold; }
+        .header-text h1 { margin: 0; font-size: 50px; text-transform: uppercase; letter-spacing: 2px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .header-text h2 { margin: 5px 0 0 0; font-size: 38px; color: #fbbf24; font-weight: bold; }
         
         .header-quote-center { 
-            position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
-            max-width: 40%; text-align: center; font-size: 24px; font-weight: 900; color: white; 
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 40%; 
+            text-align: center; 
+            font-size: 26px; 
+            font-weight: 900; 
+            text-transform: uppercase; 
+            color: white; 
+            line-height: 1.2;
+            z-index: 5;
         }
-        .header-quote-center small { font-size: 18px; color: #fbbf24; display: block; margin-top: 5px; }
+        .header-quote-center small { font-size: 18px; text-transform: none; font-weight: normal; color: #fbbf24; display: block; margin-top: 10px;}
 
         .kandur-walking-figure { 
-            width: 550px; position: absolute; bottom: -210px; right: -150px; z-index: 15; 
+            width: 640px; 
+            height: auto; 
+            position: absolute; 
+            bottom: -235px; 
+            right: -180px; 
+            z-index: 15; 
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.7)); 
+            pointer-events: none; 
         }
-        .kandur-walking-figure img { width: 100%; height: auto; }
+        .kandur-walking-figure img { width: 100%; height: auto; object-fit: contain; }
 
         .container { max-width: 1100px; margin: auto; padding: 20px; position: relative; z-index: 1; }
         
         .zászló-box { 
             background: white; color: #b91c1c; padding: 15px; border-radius: 15px; font-weight: bold; 
             margin: 20px 0; border-top: 5px solid #d32f2f; border-bottom: 5px solid #15803d; 
-            font-size: 20px; max-width: 65%; text-align: left;
+            font-size: 20px; position: relative; z-index: 5; max-width: 65%; margin-right: auto;
         }
         
         .szerzok-doboz { background: rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 20px; border: 1px solid #fbbf24; margin: 30px 0; text-align: left; }
         .szerzok-nevei { font-size: 19px; color: #fbbf24; font-weight: bold; font-style: italic; line-height: 1.8; }
         
-        .profil-szekcio { display: flex; align-items: center; gap: 30px; margin: 40px 0; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; text-align: left; }
-        .marta-kep { width: 150px; height: 150px; border-radius: 50%; border: 4px solid white; overflow: hidden; flex-shrink: 0; }
+        .profil-szekcio { display: flex; align-items: center; justify-content: center; gap: 30px; margin: 40px 0; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 20px; text-align: left; }
+        .marta-kep { width: 150px; height: 150px; border-radius: 50%; border: 5px solid white; overflow: hidden; flex-shrink: 0; }
         .marta-kep img { width: 100%; height: 100%; object-fit: cover; }
+        .bemutatkozas-szoveg span.nev-sor { font-size: 30px; font-weight: bold; color: #fbbf24; }
         
-        .section-title { color: #fbbf24; margin-top: 50px; border-bottom: 2px solid #fbbf24; display: inline-block; padding-bottom: 5px; font-size: 28px; }
+        .section-title { color: #fbbf24; margin-top: 50px; border-bottom: 2px solid rgba(251, 191, 36, 0.3); display: inline-block; padding-bottom: 5px; font-size: 28px; }
 
-        /* Aktuális kedvenc kártya és a kért felirat */
-        .featured-card { max-width: 480px; margin: 25px auto 10px auto; background: #1e293b; border-radius: 20px; overflow: hidden; border: 3px solid #3b82f6; display: block; }
+        /* AKTUÁLIS KEDVENC ÉS FELIRAT */
+        .featured-card { 
+            max-width: 480px; 
+            margin: 25px auto 10px auto; 
+            background: #1e293b; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            border: 3px solid #3b82f6; 
+            text-decoration: none; 
+            display: block; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+        }
         .featured-card img { width: 100%; display: block; }
-        .sarga-kiemeles { 
-            background: #fbbf24; color: #0d1b2a; padding: 12px 20px; font-weight: bold; font-size: 18px; 
-            border-radius: 10px; display: inline-block; margin-bottom: 30px; border: 2px solid white;
+        .anyák-napi-felirat { 
+            background: #fbbf24; 
+            color: #0d1b2a; 
+            padding: 10px 20px; 
+            font-weight: bold; 
+            font-size: 18px; 
+            border-radius: 8px; 
+            display: inline-block; 
+            margin-bottom: 30px; 
         }
         
         .popular-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; margin-top: 25px; }
-        .pop-card { background: #1e293b; border-radius: 15px; overflow: hidden; border: 1px solid #3b82f6; text-decoration: none; color: white; }
-        .pop-card img { width: 100%; display: block; }
+        .pop-card { background: #1e293b; border-radius: 15px; overflow: hidden; border: 1px solid #3b82f6; text-decoration: none; color: white; transition: 0.3s; }
+        .pop-card img { width: 100%; height: auto; display: block; }
         .pop-info { padding: 12px; text-align: left; }
         .pop-info h3 { margin: 0; font-size: 15px; }
-        .pop-info p { margin: 5px 0 0 0; color: #fbbf24; font-weight: bold; }
+        .pop-info p { margin: 5px 0 0 0; color: #fbbf24; font-weight: bold; font-size: 13px; }
 
         .playlist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 30px; }
-        .lista-box { background: rgba(255,255,255,0.1); border: 2px solid #3b82f6; padding: 15px; border-radius: 12px; text-decoration: none; color: white; display: block; font-weight: bold; }
+        .lista-box { background: rgba(255,255,255,0.1); border: 2px solid #3b82f6; padding: 15px; border-radius: 12px; text-decoration: none; color: white; display: block; font-weight: bold; transition: 0.3s; }
         
+        .felnott-section { background: rgba(30, 58, 138, 0.4); padding: 40px; border-radius: 25px; border: 2px solid #fbbf24; margin-top: 50px; }
         .subscribe-section { background: #f1f8fe; color: #1c2541; padding: 40px; border-radius: 30px; margin: 50px 0; border: 4px solid #fbbf24; }
-        .sub-btn { background: #ff0000; color: white; padding: 18px 40px; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 15px; }
+        .sub-btn { background: #ff0000; color: white; padding: 18px 40px; border: none; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-block; font-size: 18px; margin-top: 15px; }
 
         @media (max-width: 768px) {
-            .header { flex-direction: column; text-align: center; }
+            .header { flex-direction: column; text-align: center; padding: 20px 5%; }
             .header-text { max-width: 100%; }
-            .header-quote-center { position: relative; left: 0; top: 0; transform: none; max-width: 100%; margin: 20px 0; }
-            .kandur-walking-figure { width: 300px; bottom: -150px; right: 0; }
+            .header-quote-center { position: relative; left: 0; top: 0; transform: none; max-width: 100%; font-size: 18px; margin: 20px 0; }
+            .kandur-walking-figure { width: 300px; bottom: -150px; right: 0px; }
+            .zászló-box { max-width: 100%; }
             .profil-szekcio { flex-direction: column; text-align: center; }
         }
     </style>
@@ -94,7 +137,7 @@
         <small>– KÁNYÁDI SÁNDOR</small>
     </div>
     <div class="kandur-walking-figure">
-        <img src="kandur_teljes.png" alt="Sétáló Kék Kandúr">
+        <img src="kandur_teljes.png" alt="A sétáló Kék Kandúr">
     </div>
 </div>
 
@@ -102,7 +145,7 @@
     <div class="zászló-box">A MAGYAR IRODALOM ÉS AZ AI TALÁLKOZÁSA</div>
 
     <div class="szerzok-doboz">
-        <h2 style="margin-top:0; font-size: 18px; color: white;">A SZERZŐK, AKIKNEK A MŰVEIT FELDOLGOZTAM:</h2>
+        <h2 style="margin-top:0; font-size: 18px; color: white;">A szerzők, akiknek a műveit feldolgoztam:</h2>
         <div class="szerzok-nevei">
             Reviczky Gyula • Gazdag Erzsi • Kányádi Sándor • Devecsery László • Benedek Elek • Zigány Árpád • K. László Szilvia • Bókkon Gábor • Romhányi József • Nemes Nagy Ágnes • Mentovics Éva • Fésűs Éva • Zelk Zoltán • Szabó Lőrinc • Móricz Zsigmond • Móra Ferenc • Petőfi Sándor • József Attila • Fazekas Anna • Weöres Sándor • Ady Endre • Reményik Sándor • Nagy László • Tóth Árpád
         </div>
@@ -110,8 +153,8 @@
 
     <div class="profil-szekcio">
         <div class="marta-kep"><img src="marta.png" alt="Kovács Márta Ria"></div>
-        <div>
-            <span style="font-size: 30px; font-weight: bold; color: #fbbf24;">Kovács Márta Ria</span><br>
+        <div class="bemutatkozas-szoveg">
+            <span class="nev-sor">Kovács Márta Ria</span><br>
             <span style="font-size: 20px; text-transform: uppercase;">Élménnyé tenni az irodalmat</span>
             <p style="font-style: italic; margin-top:10px;">
                 Gondolatok vizuális térben formálódtak. Képek és dallamok találkoztak. <br>
@@ -121,12 +164,10 @@
     </div>
 
     <h2 class="section-title">🎬 Aktuális kedvenc</h2>
-    <div class="featured-card">
-        <a href="https://youtu.be/BQx9X3FPxRA" target="_blank">
-            <img src="https://img.youtube.com/vi/BQx9X3FPxRA/maxresdefault.jpg" alt="Anyák napi videó">
-        </a>
-    </div>
-    <div class="sarga-kiemeles">Megzenésített óvodás vers Anyák napjára</div>
+    <a href="https://youtu.be/BQx9X3FPxRA" target="_blank" class="featured-card">
+        <img src="https://img.youtube.com/vi/BQx9X3FPxRA/maxresdefault.jpg" alt="Édesanyák halljátok-e?...">
+    </a>
+    <div class="anyák-napi-felirat">Megzenésített óvodás vers Anyák napjára</div>
 
     <h2 class="section-title">🔥 Népszerű videók</h2>
     <div class="popular-grid">
@@ -148,18 +189,30 @@
         </a>
     </div>
 
-    <h2 class="section-title">🏰 Gyűjtemények</h2>
+    <h2 class="section-title">🏰 A 7 bűvös gyűjtemény</h2>
     <div class="playlist-grid">
         <a href="https://www.youtube.com/playlist?list=PLcwQqd8qA-xe_gQmKDMhe4BoNwdWEj2v_" target="_blank" class="lista-box">Állatos gyerekdalok</a>
         <a href="https://www.youtube.com/playlist?list=PLcwQqd8qA-xcv67PQDCtmxlTZUI8xZlVE" target="_blank" class="lista-box">Versdalok gyerekeknek</a>
         <a href="https://www.youtube.com/playlist?list=PLcwQqd8qA-xeEdH5tz79NtnyQnCLd1YqZ" target="_blank" class="lista-box">Betűs dalok</a>
+        <a href="https://www.youtube.com/playlist?list=PLcwQqd8qA-xdKjx5UcWDMtVR1nW43PjdH" target="_blank" class="lista-box">Mesék és mondókák</a>
+        <a href="https://www.youtube.com/playlist?list=PLcwQqd8qA-xdrsFKVyNnqKgrDM1GoOeu-" target="_blank" class="lista-box">Tél-Mikulás-Karácsony</a>
         <a href="https://www.youtube.com/playlist?list=PLcwQqd8qA-xdKULkDkaNggSj4-mBDUQTY" target="_blank" class="lista-box">Magyar népdalok</a>
+        <a href="https://www.youtube.com/playlist?list=PLcwQqd8qA-xeFvHCKh6s4NMRglmvOn6GL" target="_blank" class="lista-box">AI dalok</a>
+    </div>
+
+    <div class="felnott-section">
+        <h2 style="color: #fbbf24; margin-top: 0;">✨ Versdalok felnőtteknek</h2>
+        <a href="https://www.youtube.com/playlist?list=PLcwQqd8qA-xe27efJZExhDSJh08zcK4UW" target="_blank" style="color: #fbbf24; font-weight: bold; text-decoration: none; border: 1px solid #fbbf24; padding: 10px 20px; border-radius: 8px;">Megnyitás →</a>
     </div>
 
     <div class="subscribe-section">
         <h2 style="font-size: 35px; font-weight: 900; margin: 0;">🎁 AJÁNDÉK 🎁</h2>
         <p style="font-size: 20px; font-weight: bold;">Kérd a nyomtatható kifestőt.</p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScNxF2EVHFQKgs12OxXwOYJKu4BR_q2aNN0OwTJuM1vXEAEVw/viewform" target="_blank" class="sub-btn">KÉREM AZ AJÁNDÉKOT!</a>
+    </div>
+
+    <div style="margin-top: 50px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-style: italic; font-size: 14px;">
+        <p>Amennyiben Ön a közzétett művek jogtulajdonosa, és nem járul hozzá a megjelenítéshez, kérem jelezze, és haladéktalanul eltávolítom a tartalmat.</p>
     </div>
 </div>
 
