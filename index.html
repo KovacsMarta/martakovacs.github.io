@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Kék Kandúr Birodalma - AI Mesevilág</title>
+    <title>AI Mesevilág - Kék Kandúr Birodalma</title>
     <meta name="description" content="Kék Kandúr AI Mesevilág - Kovács Márta Ria honlapja. Klasszikus magyar versek és mesék modern AI feldolgozásban.">
-    <meta name="keywords" content="Kék Kandúr, AI Mesevilág, Kovács Márta Ria, versek, mesék, Anyák napja">
+    <meta name="keywords" content="Kék Kandúr, AI Mesevilág, Kovács Márta Ria, versek, mesék, Fazekas Anna, Móricz Zsigmond, Móra Ferenc, Szabó Lőrinc">
     <meta name="author" content="Kovács Márta Ria">
 
     <style>
@@ -56,6 +56,7 @@
             z-index: 15; 
             filter: drop-shadow(0 15px 25px rgba(0,0,0,0.7)); 
             pointer-events: none; 
+            transition: all 0.3s ease;
         }
         .kandur-walking-figure img { width: 100%; height: auto; object-fit: contain; }
 
@@ -77,7 +78,6 @@
         
         .section-title { color: #fbbf24; margin-top: 50px; border-bottom: 2px solid rgba(251, 191, 36, 0.3); display: inline-block; padding-bottom: 5px; font-size: 28px; }
 
-        /* AKTUÁLIS KEDVENC ÉS FELIRAT */
         .featured-card { 
             max-width: 480px; 
             margin: 25px auto 10px auto; 
@@ -87,9 +87,13 @@
             border: 3px solid #3b82f6; 
             text-decoration: none; 
             display: block; 
+            transition: 0.3s; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
+        .featured-card:hover { transform: translateY(-5px); border-color: #fbbf24; }
         .featured-card img { width: 100%; display: block; }
+        
+        /* A SÁRGA FELIRAT STÍLUSA */
         .anyák-napi-felirat { 
             background: #fbbf24; 
             color: #0d1b2a; 
@@ -99,6 +103,7 @@
             border-radius: 8px; 
             display: inline-block; 
             margin-bottom: 30px; 
+            border: 2px solid white;
         }
         
         .popular-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 15px; margin-top: 25px; }
@@ -114,14 +119,18 @@
         .felnott-section { background: rgba(30, 58, 138, 0.4); padding: 40px; border-radius: 25px; border: 2px solid #fbbf24; margin-top: 50px; }
         .subscribe-section { background: #f1f8fe; color: #1c2541; padding: 40px; border-radius: 30px; margin: 50px 0; border: 4px solid #fbbf24; }
         .sub-btn { background: #ff0000; color: white; padding: 18px 40px; border: none; border-radius: 50px; font-weight: bold; text-decoration: none; display: inline-block; font-size: 18px; margin-top: 15px; }
+        .back-to-top { position: fixed; bottom: 20px; right: 20px; background-color: #1e3a8a; color: white; width: 60px; height: 60px; border-radius: 50%; border: 3px solid #fbbf24; text-decoration: none; font-size: 30px; display: flex; align-items: center; justify-content: center; z-index: 1000; }
 
         @media (max-width: 768px) {
-            .header { flex-direction: column; text-align: center; padding: 20px 5%; }
-            .header-text { max-width: 100%; }
+            .header { flex-direction: column; text-align: center; padding: 20px 5%; height: auto; }
+            .header-text { max-width: 100%; margin-bottom: 20px; }
+            .header-text h1 { font-size: 32px; }
+            .header-text h2 { font-size: 24px; }
             .header-quote-center { position: relative; left: 0; top: 0; transform: none; max-width: 100%; font-size: 18px; margin: 20px 0; }
             .kandur-walking-figure { width: 300px; bottom: -150px; right: 0px; }
-            .zászló-box { max-width: 100%; }
+            .zászló-box { max-width: 100%; font-size: 16px; }
             .profil-szekcio { flex-direction: column; text-align: center; }
+            .featured-card { max-width: 100%; }
         }
     </style>
 </head>
@@ -145,7 +154,7 @@
     <div class="zászló-box">A MAGYAR IRODALOM ÉS AZ AI TALÁLKOZÁSA</div>
 
     <div class="szerzok-doboz">
-        <h2 style="margin-top:0; font-size: 18px; color: white;">A szerzők, akiknek a műveit feldolgoztam:</h2>
+        <h2 style="margin-top:0; font-size: 18px; color: white; text-transform: uppercase;">A szerzők, akiknek a műveit feldolgoztam:</h2>
         <div class="szerzok-nevei">
             Reviczky Gyula • Gazdag Erzsi • Kányádi Sándor • Devecsery László • Benedek Elek • Zigány Árpád • K. László Szilvia • Bókkon Gábor • Romhányi József • Nemes Nagy Ágnes • Mentovics Éva • Fésűs Éva • Zelk Zoltán • Szabó Lőrinc • Móricz Zsigmond • Móra Ferenc • Petőfi Sándor • József Attila • Fazekas Anna • Weöres Sándor • Ady Endre • Reményik Sándor • Nagy László • Tóth Árpád
         </div>
@@ -155,7 +164,7 @@
         <div class="marta-kep"><img src="marta.png" alt="Kovács Márta Ria"></div>
         <div class="bemutatkozas-szoveg">
             <span class="nev-sor">Kovács Márta Ria</span><br>
-            <span style="font-size: 20px; text-transform: uppercase;">Élménnyé tenni az irodalmat</span>
+            <span style="font-size: 20px; text-transform: uppercase;">Élménnyé tanyi az irodalmat</span>
             <p style="font-style: italic; margin-top:10px;">
                 Gondolatok vizuális térben formálódtak. Képek és dallamok találkoztak. <br>
                 Így született az AI Mesevilág. Hazai költők műveit népszerűsítem modern eszközökkel.
@@ -172,19 +181,19 @@
     <h2 class="section-title">🔥 Népszerű videók</h2>
     <div class="popular-grid">
         <a href="https://www.youtube.com/watch?v=s80jG31JGgs" target="_blank" class="pop-card">
-            <img src="https://img.youtube.com/vi/s80jG31JGgs/mqdefault.jpg">
+            <img src="https://img.youtube.com/vi/s80jG31JGgs/mqdefault.jpg" alt="Öregnéne">
             <div class="pop-info"><h3>Fazekas Anna: Öreg néne őzikéje</h3><p>👁️ 69 E megtekintés</p></div>
         </a>
         <a href="https://www.youtube.com/watch?v=LxJDzzSLGho" target="_blank" class="pop-card">
-            <img src="https://img.youtube.com/vi/LxJDzzSLGho/mqdefault.jpg">
+            <img src="https://img.youtube.com/vi/LxJDzzSLGho/mqdefault.jpg" alt="Iciri-piciri">
             <div class="pop-info"><h3>Móricz Zsigmond: Iciri - piciri</h3><p>👁️ 37 E megtekintés</p></div>
         </a>
         <a href="https://www.youtube.com/watch?v=G97g70qr0tE" target="_blank" class="pop-card">
-            <img src="https://img.youtube.com/vi/G97g70qr0tE/mqdefault.jpg">
+            <img src="https://img.youtube.com/vi/G97g70qr0tE/mqdefault.jpg" alt="Zengő ABC">
             <div class="pop-info"><h3>Móra Ferenc: Zengő ABC</h3><p>👁️ 25 E megtekintés</p></div>
         </a>
         <a href="https://youtu.be/zayeBXykkA8" target="_blank" class="pop-card">
-            <img src="https://img.youtube.com/vi/zayeBXykkA8/mqdefault.jpg">
+            <img src="https://img.youtube.com/vi/zayeBXykkA8/mqdefault.jpg" alt="Falusi hangverseny">
             <div class="pop-info"><h3>Szabó Lőrinc: Falusi hangverseny</h3><p>👁️ 12 E megtekintés</p></div>
         </a>
     </div>
@@ -206,14 +215,16 @@
     </div>
 
     <div class="subscribe-section">
-        <h2 style="font-size: 35px; font-weight: 900; margin: 0;">🎁 AJÁNDÉK 🎁</h2>
+        <h2 style="font-size: 40px; font-weight: 900; margin: 0;">🎁 AJÁNDÉK 🎁</h2>
         <p style="font-size: 20px; font-weight: bold;">Kérd a nyomtatható kifestőt.</p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScNxF2EVHFQKgs12OxXwOYJKu4BR_q2aNN0OwTJuM1vXEAEVw/viewform" target="_blank" class="sub-btn">KÉREM AZ AJÁNDÉKOT!</a>
     </div>
+</div>
 
-    <div style="margin-top: 50px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); font-style: italic; font-size: 14px;">
-        <p>Amennyiben Ön a közzétett művek jogtulajdonosa, és nem járul hozzá a megjelenítéshez, kérem jelezze, és haladéktalanul eltávolítom a tartalmat.</p>
-    </div>
+<a href="#" class="back-to-top">🐾</a>
+
+<div style="margin-top: 50px; padding: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-style: italic; color: #aaa;">
+    <p>Amennyiben Ön a közzétett művek jogtulajdonosa, és nem járul hozzá a megjelenítéshez, kérem jelezze, és haladéktalanul eltávolítom a tartalmat.</p>
 </div>
 
 </body>
